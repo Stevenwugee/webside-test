@@ -1,0 +1,99 @@
+
+<!---------input-------> 
+<input id="input" type="text" maxlength="4">
+<button type="button" onclick="inFunction()" >Test Input</button>
+</br>
+<button onclick="reFunction()">start game</button>
+
+<p id="demo"></p>
+<p id="times">123</p>
+<p id="in">0000</p>
+<p id="answer">0A0B</p>
+
+<script>
+<!----------random----------->
+var points = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+ 
+
+function reFunction() {
+  points.sort(function(a, b){return 0.5 - Math.random()});
+  answer = points.slice(6);
+  document.getElementById("demo").innerHTML = answer;
+  
+}
+
+function inFunction() {
+  var message, x;
+  if (document.getElementById("input").value.length < 4) {
+  	var error = "Please input 4 numbers";
+    alert(error);  
+  } if (document.getElementById("input").value.length > 3) {
+    number1 = Math.floor(document.getElementById("input").value/1000);
+    number2 = Math.floor(document.getElementById("input").value%1000/100);
+    number3 = Math.floor(document.getElementById("input").value%100/10);
+    number4 = Math.floor(document.getElementById("input").value%10);
+  	repeatfunction();
+    
+    
+  }
+
+}
+
+function repeatfunction() {	
+	if ((number1==number2|| number1==number3 || number1==number4 || number2==number3
+    || number2==number4 || number3==number4)==true){
+    alert("No repeat number");
+    } else {
+    
+    timeFunction();
+    inputFunction();
+    verififunction();
+ 	}
+}
+var times = 0;
+var text1 ="";
+var text2 ="";
+var text3 ="";
+function timeFunction(){
+  times +=1;
+  text1 += times + "</br>";
+  document.getElementById("times").innerHTML= text1;
+}
+function inputFunction(){
+	y = "" + number1 + number2 + number3 + number4;
+	text2 += y + "</br>"
+    document.getElementById("in").innerHTML= text2 ;
+}
+<!----------verification----------->
+function verififunction(){
+	var A1=0
+    var A2=0
+    var A3=0
+    var A4=0
+    var B1=0
+    var B2=0
+    var B3=0
+    var B4=0
+    if (answer[0] == number1){
+    var A1 =1
+    } if(answer[1] == number2){
+    A2 =1
+    } if(answer[2] == number3){
+    A3 =1
+    } if(answer[3] == number4){
+    A4 =1
+    } if(answer[0] == number2 || answer[0] == number3 || answer[0] == number4 ){
+    B1 =1
+    } if(answer[1] == number1 || answer[1] == number3 || answer[1] == number4 ){
+    B2 =1
+    } if(answer[2] == number1 || answer[2] == number2 || answer[2] == number4 ){
+    B3 =1
+    } if(answer[3] == number1 || answer[3] == number2 || answer[3] == number3 ){
+    B4 =1
+    }
+    answerA = A1 + A2 + A3 + A4;
+    answerB = B1 + B2 + B3 + B4;
+    text3 += answerA + "A" + answerB + "B" +"</br>";
+    document.getElementById("answer").innerHTML= text3;
+}
+</script>
