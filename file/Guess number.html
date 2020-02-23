@@ -3,7 +3,7 @@
 <body>
 <!---------input-------> 
 <input id="input" type="text" maxlength="4">
-<button type="button" onclick="inFunction()" >Test Input</button>
+<button id="click" type="button" onclick="inFunction()" >Test Input</button>
 </br>
 <button id="start" onclick="reFunction()">start game</button>
 
@@ -24,7 +24,8 @@ function reFunction() {
   points.sort(function(a, b){return 0.5 - Math.random()});
   answer = points.slice(6);
   document.getElementById("demo").innerHTML = answer;
-  document.getElementById("start").innerHTML = "restart";
+  document.getElementById("start").innerHTML ="restart";
+  document.getElementById("click").disabled = false;
   t1.innerHTML="1";
   t2.innerHTML="____";
   t3.innerHTML="0A0B";
@@ -102,8 +103,16 @@ function verififunction(){
     answerA = A1 + A2 + A3 + A4;
     answerB = B1 + B2 + B3 + B4;
     text3 += answerA + "A" + answerB + "B" +"</br>";
-    document.getElementById("answer").innerHTML= text3;
+    document.getElementById("answer").innerHTML= text3; 
+	clearfunction();
 }
+function clearfunction(){
+	if (answerA == 4){
+    alert("congratulation");
+    document.getElementById("click").disabled = true;
+    }
+}
+
 </script>
 
 </body>
