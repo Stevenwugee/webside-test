@@ -5,11 +5,11 @@
 <input id="input" type="text" maxlength="4">
 <button type="button" onclick="inFunction()" >Test Input</button>
 </br>
-<button onclick="reFunction()">start game</button>
+<button id="start" onclick="reFunction()">start game</button>
 
 <p id="demo"></p>
-<p id="times">123</p>
-<p id="in">0000</p>
+<p id="times">1</p>
+<p id="in">____</p>
 <p id="answer">0A0B</p>
 
 <script>
@@ -18,10 +18,16 @@ var points = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
  
 
 function reFunction() {
+  var t1 = document.getElementById("times");
+  var t2 = document.getElementById("in");
+  var t3 = document.getElementById("answer");
   points.sort(function(a, b){return 0.5 - Math.random()});
   answer = points.slice(6);
-  
-  
+  document.getElementById("demo").innerHTML = answer;
+  document.getElementById("start").innerHTML = "restart";
+  t1.innerHTML="1";
+  t2.innerHTML="____";
+  t3.innerHTML="0A0B";
 }
 
 function inFunction() {
@@ -99,5 +105,6 @@ function verififunction(){
     document.getElementById("answer").innerHTML= text3;
 }
 </script>
+
 </body>
 </html>
