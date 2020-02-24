@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html>
-<body>
-<!---------input-------> 
-<input id="input" type="text" maxlength="4">
-<button id="click" type="button" onclick="inFunction()" >Number Input</button>
-</br>
-<button id="start" onclick="reFunction()">start game</button>
-<button onclick="answerFunction()">answer</button>
+<head>
+  <style>
+  th {
+    text-align: left;
+  }
+  </style>
+</head>
 
-<p id="right answer"></p>
-<p id="times">1</p>
-<p id="in">____</p>
-<p id="answer">0A0B</p>
-<p id="happy end"></p>
+<body>
+<!---------button-------> 
+  <input id="input" type="text" maxlength="4">
+  <button id="click" type="button" onclick="inFunction()" >Number Input</button>
+  </br>
+  <button id="start" onclick="reFunction()">start game</button>
+  <button onclick="answerFunction()">answer</button>
+
+<!---------paragraphs&table-------> 
+  <p id="right answer"></p>
+
+
+  <table style="width:40%">
+    <tr>
+      <th>times</th>
+      <th>your answer</th> 
+      <th>result</th>
+    </tr>
+    <tr>
+      <td id="times">1</td>
+      <td id="in">____</td>
+      <td id="answer">0A0B</td>
+    </tr>
+  </table>
+
+  <p id="happy end"></p>
 
 <script>
 <!----------question----------->
