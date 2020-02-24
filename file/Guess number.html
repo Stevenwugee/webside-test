@@ -35,14 +35,15 @@
 <body>
 <!---------button-------> 
   <h1>Number Guess</h1>
-  <h2>遊戲規則:</br>按下start game開始遊戲，隨機產生四個不重複數字</br>請輸入四個不重複數字進行回答
+  <h2>遊戲規則:</br>按下start game開始遊戲，隨機產生四個不重複數字</br>在Number Input請輸入四個不重複數字進行回答
 	</br>結果A表示數字及位置正確 ; B表示數字正確，位置不正確</h2>
+  
   <div class="button">
-    <input id="input" type="text" maxlength="4">
+    <input id="input" type="text" value="輸入數字" maxlength="4" onfocus="cleartext(this)" >
     <button id="click" type="button" onclick="inFunction()" >Number Input</button>
     </br>
     <button id="start" onclick="reFunction()">start game</button>
-    <button onclick="answerFunction()">answer</button>
+    <button onclick="answerFunction()">answer</button><h3><i>answer按鍵會給你正確答案</i></h3>
   </div>
 <!---------paragraphs&table------->
   
@@ -81,6 +82,7 @@ function reFunction() {
   document.getElementById("start").innerHTML ="restart";
   document.getElementById("click").disabled = false;
   document.getElementById("right answer").innerHTML = "";
+  document.getElementById("happy end").innerHTML = "";
   t1.innerHTML="1";
   t2.innerHTML="____";
   t3.innerHTML="0A0B";
@@ -176,6 +178,9 @@ function clearfunction(){
     }
 }
 
+function cleartext (input){          
+    input.value ="";   
+}
 </script>
 
 </body>
