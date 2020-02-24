@@ -3,34 +3,46 @@
 <body>
 <!---------input-------> 
 <input id="input" type="text" maxlength="4">
-<button id="click" type="button" onclick="inFunction()" >Test Input</button>
+<button id="click" type="button" onclick="inFunction()" >Number Input</button>
 </br>
 <button id="start" onclick="reFunction()">start game</button>
+<button onclick="answerFunction()">answer</button>
 
-<p id="demo"></p>
+<p id="right answer"></p>
 <p id="times">1</p>
 <p id="in">____</p>
 <p id="answer">0A0B</p>
+<p id="happy end"></p>
 
 <script>
-<!----------random----------->
+<!----------question----------->
 var points = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
- 
+var answer = "Please press the start button" 
 
-function reFunction() {
+function reFunction() {	
+  
   var t1 = document.getElementById("times");
   var t2 = document.getElementById("in");
   var t3 = document.getElementById("answer");
   points.sort(function(a, b){return 0.5 - Math.random()});
-  answer = points.slice(6);
-  document.getElementById("demo").innerHTML = answer;
+  answer = points.slice(6);  
   document.getElementById("start").innerHTML ="restart";
   document.getElementById("click").disabled = false;
+  document.getElementById("right answer").innerHTML = "";
   t1.innerHTML="1";
   t2.innerHTML="____";
   t3.innerHTML="0A0B";
+  times = 0;
+  text1 ="";
+  text2 ="";
+  text3 ="";
+}
+<!----------right answer button----------->
+function answerFunction(){
+	document.getElementById("right answer").innerHTML = answer;
 }
 
+<!----------input----------->
 function inFunction() {
   var message, x;
   if (document.getElementById("input").value.length < 4) {
@@ -47,7 +59,7 @@ function inFunction() {
   }
 
 }
-
+<!----------repeat verification----------->
 function repeatfunction() {	
 	if ((number1==number2|| number1==number3 || number1==number4 || number2==number3
     || number2==number4 || number3==number4)==true){
@@ -59,10 +71,8 @@ function repeatfunction() {
     verififunction();
  	}
 }
-var times = 0;
-var text1 ="";
-var text2 ="";
-var text3 ="";
+
+<!----------show input----------->
 function timeFunction(){
   times +=1;
   text1 += times + "</br>";
@@ -106,10 +116,11 @@ function verififunction(){
     document.getElementById("answer").innerHTML= text3; 
 	clearfunction();
 }
+<!----------happy end----------->
 function clearfunction(){
 	if (answerA == 4){
-    alert("congratulation");
     document.getElementById("click").disabled = true;
+    document.getElementById("happy end").innerHTML= "congratulation!!! Please press the restart button to play a new game";
     }
 }
 
